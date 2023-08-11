@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sql-map
+    PUBLIC "-//iBATIS.com//DTD SQL Map 1.0//EN"
+    "http://www.ibatis.com/dtd/sql-map.dtd">
+<sql-map name="Record">
+	<result-map name="result" class="com.beiyou.test.ibatis.entity.Record">
+		<property name="uid" column="uid"/>
+		<property name="createtime" column="createtime"/>
+		<property name="updatetime" column=updatetime/>
+		<property name="gamerank" column="gamerank"/>
+	</result-map>
+	
+	<mapped-statement name="insertRecord">
+		<![CDATA[
+			insert into usergamerecord (uid, createtime, updatetime, gamerank)
+			values (#uid#, #createtime#, #updatetime#, #gamerank#)
+		]]>
+	</mapped-statement>
+	<mapped-statement name="updateRecord">
+		<![CDATA[
+			update usergamerecord 
+			set updatetime =  #updatetime#, gamerank = #gamerank#
+			where uid = #uid#
+		]]>
+	</mapped-statement>
+	
+</sql-map>
